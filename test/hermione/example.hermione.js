@@ -5,6 +5,7 @@ describe('github', async function() {
         await this.browser.url('https://github.com/gemini-testing/hermione');
         await this.browser.assertView('plain', '#readme', {
             compositeImage: true,
+            allowViewportOverflow: true,
         });
 
         const title = await this.browser.$('#readme h1').getText();
