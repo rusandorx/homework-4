@@ -9,7 +9,7 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome'
       },
-      headless: true
+      headless: true,
     },
     edge: {
       automationProtocol: 'webdriver',
