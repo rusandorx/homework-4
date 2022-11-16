@@ -5,11 +5,11 @@ import {Provider} from "react-redux";
 import {Application} from "../../src/client/Application";
 import React from "react";
 
-export const createApplication: () => JSX.Element = () => {
-    const api = new ExampleApi('');
-    const store = initStore(api, new CartApi());
+export const createApplication: (exampleApi?: ExampleApi, basename?: string)
+    => JSX.Element = (exampleApi = new ExampleApi('http://localhost:8000/hw/store'), basename: string = '/hw/store') => {
+    const store = initStore(exampleApi, new CartApi());
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
             <Provider store={store}>
                 <Application/>
             </Provider>
@@ -22,6 +22,7 @@ export interface TestingPage {
     className: string,
     testName: string
 }
+
 export const TESTING_PAGES: TestingPage[] = [{
     linkName: 'example store',
     className: 'Home',

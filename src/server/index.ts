@@ -1,7 +1,7 @@
 import express from 'express';
 import { router } from './routes';
 
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 8000;
 const basename = '/hw/store';
 
 const app = express();

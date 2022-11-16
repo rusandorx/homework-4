@@ -9,4 +9,5 @@ module.exports = {
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts', 'window-resizeto/polyfill'],
+  // setupTestFrameworkScriptFile: '<rootDir>/jest-setup.ts',
 };
