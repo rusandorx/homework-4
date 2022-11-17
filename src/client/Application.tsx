@@ -49,7 +49,7 @@ export const Application: FC = () => {
                         <NavLink className="nav-link" activeClassName="active" to="/contacts"
                                  onClick={hide}>Contacts</NavLink>
                         <NavLink className="nav-link" activeClassName="active" to="/cart"
-                                 onClick={hide}>{cartLabel}</NavLink>
+                                 onClick={hide} data-testid='cart-icon'>{cartLabel}</NavLink>
                     </div>
                 </div>
             </div>

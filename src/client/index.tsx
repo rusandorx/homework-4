@@ -17,11 +17,11 @@ const cart = new CartApi();
 const store = initStore(api, cart);
 
 const application = (
-    <BrowserRouter basename={basename}>
-        <Provider store={store}>
-            <Application />
-        </Provider>
-    </BrowserRouter>
+  <BrowserRouter basename={basename}>
+    <Provider store={store}>
+      <Application />
+    </Provider>
+  </BrowserRouter>
 );
 
 render(application, document.getElementById('root'));
