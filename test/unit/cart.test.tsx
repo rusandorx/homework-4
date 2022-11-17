@@ -56,7 +56,7 @@ describe('Корзина', () => {
     });
 
     test('должна отображать кнопку "очистить корзину", по нажатию на которую все товары должны удаляться', async () => {
-        const {container} = render(
+        render(
             <BrowserRouter>
                 <Provider store={store}>
                     <Cart/>
@@ -84,4 +84,30 @@ describe('Корзина', () => {
         }));
     });
 
+    test('при оформлении заказа выдаёт верный id заказа', async () => {
+        const submitForm = async () => {
+            await events.type(screen.getByTestId('input-name'), 'Random Name');
+            await events.type(screen.getByTestId('input-phone'), '10257892412');
+            await events.type(screen.getByTestId('input-address'), 'Random address');
+            await events.click(screen.getByTestId('submit-form-btn'));
+        }
+
+        render(
+            <BrowserRouter>
+                <Provider store={store}>
+                    <Cart/>
+                </Provider>
+            </BrowserRouter>,
+        );
+        await fillStore(store, exampleApi);
+        await submitForm();
+        await new Promise((resolve) => setTimeout(() => {resolve(null)}, 20))
+        const prevResult = store.getState().latestOrderId;
+        expect(prevResult).toBeTruthy();
+        await fillStore(store, exampleApi);
+        await submitForm();
+        await new Promise((resolve) => setTimeout(() => {resolve(null)}, 20))
+        expect(store.getState().latestOrderId).toBeTruthy();
+        expect(store.getState().latestOrderId).toEqual(prevResult + 1);
+    });
 });
