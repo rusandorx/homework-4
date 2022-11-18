@@ -2,6 +2,7 @@ module.exports = {
   gridUrl: 'http://localhost:4444/wd/hub',
   takeScreenshotOnFailsTimeout: 20000,
 
+  windowSize: '1920x1080',
   browsers: {
     chrome: {
       automationProtocol: 'webdriver',

@@ -41,6 +41,7 @@ describe('Каталог', () => {
         const products = (await exampleApi.getProducts()).data;
         for (const {id} of products) {
             const product = (await exampleApi.getProductById(id)).data;
+            expect(product.id).toEqual(id);
             const {container} = render(
                 <BrowserRouter>
                     <Provider store={initStore(exampleApi, new CartApi())}>

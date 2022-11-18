@@ -1,8 +1,9 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:@typescript-eslint/eslint-recommended"],
   "plugins": [
     "react",
-    "jest"
+    "jest",
+    "@typescript-eslint"
   ],
   "rules": {
     "jest/no-disabled-tests": "warn",
@@ -18,5 +19,6 @@
   },
   "env": {
     "jest/globals": true
-  }
+  },
+  "parser": "@typescript-eslint-parser"
 }

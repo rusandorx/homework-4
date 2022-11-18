@@ -28,6 +28,9 @@ describe('Тесты для всей страницы: ', function () {
 
     await this.browser.setWindowSize(width, 1080);
     assert.isFalse(await this.browser.$('.Application-Menu').isDisplayed());
+    await (await this.browser.$('.Application-Toggler')).click();
+    await (await this.browser.$('.nav-link')).click();
+    await this.browser.$('.Application-Menu').waitForExist();
+    assert.isFalse(await this.browser.$('.Application-Menu').isDisplayed());
   });
-
 });
